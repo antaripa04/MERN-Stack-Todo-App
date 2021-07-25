@@ -20,7 +20,7 @@ Backend:
 -MongoDB Atlas
 -Node.js
 -Cors
--node-corn
+-node-cron
 -nodemailer
 ```
 
