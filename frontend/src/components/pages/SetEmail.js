@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 export default function SetEmail() {
   const history = useHistory();
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   //NOTE: try to fetch email using useEffect, you'll have to create a API for that
 
@@ -30,6 +31,7 @@ export default function SetEmail() {
       const res = await axios.get(`http://localhost:3030/api/get-email/`);
       const { email } = res.data;
       setEmail(email);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -39,7 +41,7 @@ export default function SetEmail() {
     getEmail();
   }, []);
 
-  return (
+  return !isLoading?(
     <div className="container">
       <h3>Set Email</h3>
       <form onSubmit={onSubmit}>
@@ -58,6 +60,10 @@ export default function SetEmail() {
           <input type="submit" className="btn btn-primary" value="Set Email" />
         </div>
       </form>
+    </div>
+  ):(
+    <div className="container text-center mt-5">
+      <h3>Getting Email ..</h3>
     </div>
   );
 }
