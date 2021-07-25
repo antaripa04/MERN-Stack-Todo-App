@@ -3,7 +3,7 @@ const Todo = require("../models/todo.model");
 module.exports = {
     getById: async (req, res, next) => {
         try {
-            const _id = rq.params._id;
+            const _id = req.params._id;
             const singleTodo = await Todo.findById(_id);
 
             if (!singleTodo) {
