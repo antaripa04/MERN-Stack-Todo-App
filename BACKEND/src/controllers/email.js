@@ -15,7 +15,7 @@ module.exports = {
         try {
             const userEmail = await User.find({});
             res.status(200).send(userEmail[0]);
-            console.log(userEmail);
+//             console.log(userEmail);
         } catch (error) {
             next(error);
         }
