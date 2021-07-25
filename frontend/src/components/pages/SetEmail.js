@@ -7,7 +7,6 @@ export default function SetEmail() {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  //NOTE: try to fetch email using useEffect, you'll have to create a API for that
 
   const onSubmit = async (e) => {
     try {
